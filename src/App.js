@@ -10,7 +10,7 @@ class App extends React.Component {
   state = {
     followers: [],
 
-    currentUser: "magoha01",
+    currentUser: "",
 
     user: {},
 }
@@ -44,12 +44,13 @@ componentDidUpdate (prevProps, prevState) {
 handleChange = (e) => {
   this.setState({
     ...this.state,
-    currentUser: e.target.value
+    currentUser: e.target.value,
+  
   });
 }
-
+ 
 handleSubmit = (e) => {
-  preventDefault()
+  e.preventDefault()
   axios.get(`https://api.github.com/users/${this.state.currentUser}`)
     .then(resp =>{
       this.setState({
