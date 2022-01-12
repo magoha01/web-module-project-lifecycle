@@ -3,66 +3,63 @@ import Axios from 'axios';
 import User from './components/User.js';
 import FollowerList from './components/FollowerList.js'
 import axios from 'axios';
+ 
 
 class App extends React.Component {
 
   state = {
-    followers: [ 
-      {
-        login: "lomelo-x",
-        avatar_url: "https://avatars.githubusercontent.com/u/91710091?v=4",
-        html_url: "https://github.com/lomelo-x",
-      },
-
-      {
-        login: "lomelo-x",
-        avatar_url: "https://avatars.githubusercontent.com/u/91710091?v=4",
-        html_url: "https://github.com/lomelo-x",
-      },
-
-      {login: "lomelo-x",
-      avatar_url: "https://avatars.githubusercontent.com/u/91710091?v=4",
-      html_url: "https://github.com/lomelo-x",
-      }
-    ],
+    followers: [],
 
     currentUser: "magoha01",
 
-    user: {
-      id: 92870676,
-      name: "Hailey M.",
-      login:"magoha01",
-      html_url: "https://github.com/magoha01",
-      followers_url: "https://api.github.com/users/magoha01/followers",
-      avatar_url: "https://avatars.githubusercontent.com/u/92870676?v=4",
-      followers: 12,
-      following: 12,
-    }
+    user: {},
 }
 
+componentDidMount () {
+  axios.get(`https://api.github.com/users/${this.state.currentUser}`)
+    .then(resp =>{
+      this.setState({
+        ...this.state,
+        user: resp.data
+      });
+    }).catch(err =>{
+          console.log(err);
+        })
+}
 
-//   state = {
-   
-//     user: [],
-//     followers: []
-      
+componentDidUpdate (prevProps, prevState) {
+  if(this.state.user !== prevState.user) {
+    axios.get(`https://api.github.com/users/${this.state.currentUser}/followers`)
+    .then(resp =>{
+      this.setState({
+        ...this.state,
+        followers: resp.data
+      });
+    }).catch(err =>{
+          console.log(err);
+        })
+  }
+}
 
-// }
+handleChange = (e) => {
+  this.setState({
+    ...this.state,
+    currentUser: e.target.value
+  });
+}
 
-// componentDidMount() {
-//   console.log('mounted')
-//   axios.get('https://api.github.com/users/magoha01')
-//     .then(resp => {
-//       console.log(resp.data)
-//       this.setState({
-//           ...this.state,
-//           user: resp.data      
-//       })
-//   })
-//   .catch(err =>{
-//     console.log(err);
-//   })
-// }
+handleSubmit = (e) => {
+  preventDefault()
+  axios.get(`https://api.github.com/users/${this.state.currentUser}`)
+    .then(resp =>{
+      this.setState({
+        ...this.state,
+        user: resp.data
+      });
+    }).catch(err =>{
+          console.log(err);
+        })
+}
 
   render() {
     return(
@@ -70,13 +67,14 @@ class App extends React.Component {
 
       <div>
         <h1>Github User Search</h1>
-        <form>
-          <input/>
+        <form onSubmit={this.handleSubmit}>
+          <input onChange={this.handleChange}/>
           <button>Search</button>
         </form> 
       </div>
 
       <User user={this.state.user} />
+      <h2>Followers</h2>
       <FollowerList followers={this.state.followers}/>
       
     </div>);
