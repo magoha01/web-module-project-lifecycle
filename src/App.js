@@ -41,13 +41,13 @@ class App extends React.Component {
 }
 
 
-  state = {
+//   state = {
    
-    user: [],
-    followers: []
+//     user: [],
+//     followers: []
       
 
-}
+// }
 
 // componentDidMount() {
 //   console.log('mounted')
