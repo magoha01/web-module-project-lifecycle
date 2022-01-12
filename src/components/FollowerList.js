@@ -8,9 +8,8 @@ class FollowerList extends React.Component {
             <div>
             <Follower />
             </div>
-        );
+        )
     }
-
 }
 
 export default FollowerList;
