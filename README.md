@@ -18,15 +18,15 @@ In this project you will build an application that allows for github user and fo
 
 <!-- ![Project Example](project-goals.gif) -->
 
-***Make sure to complete your tasks one at a time and complete test each task before proceding forward.***
+***Make sure to complete your tasks one at a time and complete test each task before proceeding forward.***
 
 ## Instructions
 ### Task 1: Project Set Up
 * [X] Create a forked copy of this project.
-* [ ] Clone your OWN version of the repository in your terminal
-* [ ] cd into the project base directory `cd web-module-project-lifecycle`
-* [ ] Download project dependencies by running `npm install`
-* [ ] Start up the app using `npm start`
+* [X] Clone your OWN version of the repository in your terminal
+* [X] cd into the project base directory `cd web-module-project-lifecycle`
+* [X] Download project dependencies by running `npm install`
+* [X] Start up the app using `npm start`
 
 ### Task 2: Project Requirements
 #### Build your DOM
@@ -67,7 +67,7 @@ In this project you will build an application that allows for github user and fo
 - [ ] Push your styling! Have fun!
 
 ## Submission Format
-- [ ] If this is your first time connecting a submission, authorize your github account within the codegrade assignment.
-- [ ] Connect your fork to Codegrade using the "Connect Git" button.
-- [ ] Find your newly created fork from the list and push your work to main.
-- [ ] Check this video for details: www.youtube.com/watch?v=fC2BO7dI6IQ
+- [X] If this is your first time connecting a submission, authorize your github account within the codegrade assignment.
+- [X] Connect your fork to Codegrade using the "Connect Git" button.
+- [X] Find your newly created fork from the list and push your work to main.
+- [X] Check this video for details: www.youtube.com/watch?v=fC2BO7dI6IQ
